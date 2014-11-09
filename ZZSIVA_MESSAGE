@@ -1,0 +1,79 @@
+*&---------------------------------------------------------------------*
+*& Report  ZZSIVA_MESSAGE
+*&
+*&---------------------------------------------------------------------*
+*&
+*&
+*&---------------------------------------------------------------------*
+
+REPORT  ZZSIVA_MESSAGE message-id ZZSIVA_MSG_CLASS.
+
+
+
+MESSAGE 'This is a Info Message' TYPE 'I'.
+
+************************************************************************
+** You can use other message types like
+** 'S' for Status
+** 'E' for Error
+** 'W' for Warning
+** 'A' for Termination or Abend
+** 'X' for Exit Message
+** Each message type takes a differnt course of action
+************************************************************************
+
+MESSAGE 'This is a Status Message' TYPE 'S'.
+
+************************************************************************
+**  The following will give a run time error though
+**  The message type should be capitalized
+**  MESSAGE 'This is a Status Message' TYPE 's'.
+************************************************************************
+
+
+************************************************************************
+** This way or displaying messages has some problems
+** 1. You cannot issue parameters along with the message
+**    For example, you cannot say
+**      MESSAGE 'Material & is not found' WITH VBAP-MATNR.
+** 2. Your message is restricted to 300 Characters only.
+**    So, you cannot have long texts to explain the problem better
+************************************************************************
+
+************************************************************************
+** A better way to show messages is via the message class             **
+** A message class can be associated with a report. That way, messages**
+** can be issued without specifying the message class inside the      **
+** program.                                                           **
+** For example, this program uses a message-id "zzsiva_msg"           **
+** which is defined in [SE91] as                                      **
+** Message No.      Message Short Text                                **
+** 001              I - Informational Message                         **
+** 002              S - Status Message                                **
+** ...              ..                                                **
+** 007              Message with parameters & and &                   **
+************************************************************************
+
+MESSAGE I007 WITH 'MATNR' 'KUNNR'.
+
+************************************************************************
+** There are 5 ways in which  message can be displayed                **
+************************************************************************
+
+*message i001.
+
+*message s002.
+
+*message w003.
+
+*message e004.
+
+*message a005.
+
+*message x006.
+
+*message 'This is a message' type 'S'.
+
+MESSAGE i014(sabapdemos).
+
+*message s007 with 'aishu'.
