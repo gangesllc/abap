@@ -2,8 +2,13 @@
 *& Report  ZZSIVA_MESSAGE
 *&
 *&---------------------------------------------------------------------*
-*&
-*&
+*&  This program shows how messages can be displayed in ABAP. The 
+*&  following aspects are discussed.
+*&  1. How a simple message can be issued.
+*&  2. Types of messages.
+*&  3. Message Classes
+*&  4. Assign a message class to program
+*&  5. Issues message from a different message class.
 *&---------------------------------------------------------------------*
 
 REPORT  ZZSIVA_MESSAGE message-id ZZSIVA_MSG_CLASS.
